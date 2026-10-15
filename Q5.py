@@ -8,8 +8,8 @@ print(method1.shape)
 print(method2.shape) 
 #2
 model_out=np.array([[[0.9]]])
-print(model_out[0,0,0])
-print(model_out.item())
+print(model_out[0,0,0])   #اسکالر
+print(model_out.item())  #float
 #3
 notes=np.array([5,10,15,20,25])
 pinned=notes[1:3]
