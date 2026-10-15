@@ -15,38 +15,16 @@ gym_data[5,3]=3
 print(gym_data)
 #2
 new=gym_data[:5, 1:4]
+print(new)
 #3
-bmi_list=[]
-def BMI(gym_data):
-    for i in gym_data:
-        bmi=i[1]/((i[2]/100)**2)
-        bmi_list.append(bmi)
-    return bmi_list
-scores_list=[]
-def score(gym_data, member_names, bmi_list):
-    w1=1
-    w2=1
-    for i in range(len(gym_data)):
-                score=((w1*gym_data[i, 3]))+(w2*bmi_list[i])
-                scores_list.append(score)
-                print(f" score of {member_names[i]} is {score:.1f}")
-    return score
-BMI(gym_data)
-score(gym_data, member_names, bmi_list)
+bmi = new[:,0]/(new[:,1]/100)** 2
+score=0.1*bmi+2*new[:,2]
+new=np.column_stack((new, score))
 #4
-def maxii(scores_list, member_names):
-    maximum=max(scores_list)
-    i=scores_list.index(maximum)
-    print(f"{member_names[i]} has maximum score of {maximum}")
-maxii(scores_list, member_names)
-#5
-
-jalasat=gym_data[:, 3]
-mean_jalasat=np.mean(jalasat)
-std_jalasat=np.std(jalasat)
-differences = np.abs(jalasat - mean_jalasat)
-index = np.argmax(differences)
-print(f"Member:{member_names[index]}")
-print(f"tedad jalasat: {jalasat[index]}")
-print(f"d from mean: {differences[index]:.2f}")
-print(f"enheraf meyar: {std_jalasat:.2f}")
+best_member= member_names[np.argmax(score)]
+print(best_member)
+#5   
+sessions=gym_data[:,3]
+z_scores=(sessions-sessions.mean())/sessions.std()
+unusual_member = member_names[np.argmax(np.abs(z_scores))]
+print(unusual_member)

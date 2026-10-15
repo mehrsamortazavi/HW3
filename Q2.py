@@ -10,6 +10,7 @@ recipe_names = ["Salad", "Curry", "Toast", "Pasta", "Stew"]
 #1
 minimum=recipes.min(axis=0)
 maximum=recipes.max(axis=0)
+
 recipes_scaled=(recipes-minimum)/(maximum-minimum)
 #2
 users = np.array([
