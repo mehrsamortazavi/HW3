@@ -19,6 +19,8 @@ print(best_schemes)
 #4
 averages=final_scores.mean(axis=0)
 best_scheme=np.argmax(averages)
+print(best_scheme)
 #5
 scheme_D=np.array([0.2, 0.4, 0.4])
 weight_matrix=np.vstack((weight_matrix, scheme_D))
+print(weight_matrix)
