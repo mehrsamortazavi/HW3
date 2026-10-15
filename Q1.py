@@ -46,7 +46,6 @@ mean_jalasat=np.mean(jalasat)
 std_jalasat=np.std(jalasat)
 differences = np.abs(jalasat - mean_jalasat)
 index = np.argmax(differences)
-
 print(f"Member:{member_names[index]}")
 print(f"tedad jalasat: {jalasat[index]}")
 print(f"d from mean: {differences[index]:.2f}")
